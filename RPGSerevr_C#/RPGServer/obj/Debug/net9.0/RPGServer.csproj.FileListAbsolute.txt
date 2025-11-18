@@ -1,0 +1,14 @@
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\bin\Debug\net9.0\RPGServer.exe
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\bin\Debug\net9.0\RPGServer.deps.json
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\bin\Debug\net9.0\RPGServer.runtimeconfig.json
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\bin\Debug\net9.0\RPGServer.dll
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\bin\Debug\net9.0\RPGServer.pdb
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\RPGServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\RPGServer.AssemblyInfoInputs.cache
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\RPGServer.AssemblyInfo.cs
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\RPGServer.csproj.CoreCompileInputs.cache
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\RPGServer.dll
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\refint\RPGServer.dll
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\RPGServer.pdb
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\RPGServer.genruntimeconfig.cache
+D:\A_WorkSpace\RPGSerevr_C#\RPGServer\obj\Debug\net9.0\ref\RPGServer.dll
