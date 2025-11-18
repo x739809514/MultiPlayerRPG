@@ -10,10 +10,9 @@ namespace RPGServer
 
         static void Main(string[] args)
         {
-            threadConsole = new Thread(new ThreadStart(ConsoleThread));
+            threadConsole = new Thread(ConsoleThread);
             threadConsole.Start();
             
-            Network.instance.ServerStart();
         }
 
         private static void ConsoleThread()
@@ -27,10 +26,6 @@ namespace RPGServer
                 {
                     consoleRunning = false;
                     return;
-                }
-                else
-                {
-                    
                 }
             }
         }
