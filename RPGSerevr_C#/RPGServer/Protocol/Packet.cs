@@ -31,7 +31,7 @@ namespace RPGServer.Protocol;
 public abstract class Packet
 {
     public const int HEADER_SIZE = 5;
-    public PacketType packetType { get; set; }
+    public PacketType PacketType { get; set; }
 
     public byte[] ToBytes()
     {
@@ -39,7 +39,7 @@ public abstract class Packet
         using (var writer = new BinaryWriter(ms))
         {
             // write type here firstly
-            writer.Write((byte)packetType);
+            writer.Write((byte)PacketType);
             WriteBody(writer);
 
             byte[] body = ms.ToArray();
@@ -72,7 +72,7 @@ public abstract class Packet
             using (var reader = new BinaryReader(ms))
             {
                 var packet = new T();
-                packet.packetType = (PacketType)reader.ReadByte();
+                packet.PacketType = (PacketType)reader.ReadByte();
                 packet.ReadBody(reader);
                 return packet;
             }

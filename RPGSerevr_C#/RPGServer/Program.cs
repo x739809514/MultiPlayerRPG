@@ -5,27 +5,38 @@ namespace RPGServer
 {
     class Program
     {
-        private static Thread threadConsole;
-        private static bool consoleRunning;
+        private static GameServer gameServer;
 
         static void Main(string[] args)
         {
-            threadConsole = new Thread(ConsoleThread);
-            threadConsole.Start();
-            
-        }
+            Console.WriteLine("=== RPG Server ===");
+            Console.WriteLine("Starting server...");
 
-        private static void ConsoleThread()
-        {
-            string line;
-            consoleRunning = true;
-            while (consoleRunning)
+            gameServer = new GameServer();
+
+            // 设置 Ctrl+C 处理
+            Console.CancelKeyPress += (sender, e) =>
             {
-                line = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(line))
+                e.Cancel = true;
+                Console.WriteLine("\nShutting down server...");
+                gameServer.Stop();
+                Environment.Exit(0);
+            };
+
+            // 在新线程启动服务器
+            Thread serverThread = new Thread(gameServer.Start);
+            serverThread.Start();
+
+            // 主线程保持运行，等待用户输入
+            Console.WriteLine("Press 'q' to quit");
+            while (true)
+            {
+                var key = Console.ReadLine();
+                if (key?.ToLower() == "q")
                 {
-                    consoleRunning = false;
-                    return;
+                    Console.WriteLine("Shutting down server...");
+                    gameServer.Stop();
+                    break;
                 }
             }
         }

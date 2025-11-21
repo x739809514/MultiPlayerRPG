@@ -1,0 +1,14 @@
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/bin/Debug/net7.0/RPGServer
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/bin/Debug/net7.0/RPGServer.deps.json
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/bin/Debug/net7.0/RPGServer.runtimeconfig.json
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/bin/Debug/net7.0/RPGServer.dll
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/bin/Debug/net7.0/RPGServer.pdb
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/RPGServer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/RPGServer.AssemblyInfoInputs.cache
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/RPGServer.AssemblyInfo.cs
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/RPGServer.csproj.CoreCompileInputs.cache
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/RPGServer.dll
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/refint/RPGServer.dll
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/RPGServer.pdb
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/RPGServer.genruntimeconfig.cache
+/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/obj/Debug/net7.0/ref/RPGServer.dll
