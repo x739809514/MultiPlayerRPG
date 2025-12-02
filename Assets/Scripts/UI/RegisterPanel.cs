@@ -1,10 +1,12 @@
 ﻿using System;
+using Network;
+using Network.Protocol.Request;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RegisterPanel : MonoBehaviour
 {
-    private string accountTxt;
+    private string username;
     private string pwdTxt;
     private RegisterType type;
 
@@ -38,17 +40,25 @@ public class RegisterPanel : MonoBehaviour
 
     private void RegisterBtnOnClick()
     {
+        var registerPacket = new RegisterRequest();
+        registerPacket.userName = username;
+        registerPacket.password = pwdTxt;
         
+        NetworkManager.Instance.SendAsync(registerPacket);
     }
 
     private void LoginBtnOnClick()
     {
+        var loginPacket = new LoginRequest();
+        loginPacket.username = username;
+        loginPacket.password = pwdTxt;
         
+        NetworkManager.Instance.SendAsync(loginPacket);
     }
 
     private void UpdateAccount(string str)
     {
-        accountTxt = str;
+        username = str;
     }
 
     private void UpdatePwd(string str)
