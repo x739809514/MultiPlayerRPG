@@ -14,14 +14,12 @@ namespace Network.Protocol.Request
 
         protected override void WriteBody(BinaryWriter writer)
         {
-            writer.Write((byte)PacketType);
             BinarySerialization.WriteString(writer,userName);
             BinarySerialization.WriteString(writer,password);
         }
 
         protected override void ReadBody(BinaryReader reader)
         {
-            PacketType = (PacketType)reader.ReadByte();
             userName = BinarySerialization.ReadString(reader);
             password = BinarySerialization.ReadString(reader);
         }

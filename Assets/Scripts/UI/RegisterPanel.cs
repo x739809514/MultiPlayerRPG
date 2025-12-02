@@ -1,6 +1,7 @@
 ﻿using System;
 using Network;
 using Network.Protocol.Request;
+using Network.Protocol.Response;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,8 @@ public class RegisterPanel : MonoBehaviour
         inputPwd.onEndEdit.AddListener(UpdatePwd);
         registerBtn.onClick.AddListener(RegisterBtnOnClick);
         loginBtn.onClick.AddListener(LoginBtnOnClick);
+        NetworkManager.Instance.onRegisterResponse += OnRegisterCallback;
+        NetworkManager.Instance.onLoginResponse += OnLoginCallback;
         
         UpdateState(RegisterType.Register);
     }
@@ -70,5 +73,24 @@ public class RegisterPanel : MonoBehaviour
     {
        loginBtn.gameObject.SetActive(rt==RegisterType.Login);
        registerBtn.gameObject.SetActive(rt == RegisterType.Register);
+    }
+    
+    private void OnRegisterCallback(UserResponse response)
+    {
+        if (response.Code == ResponseCode.Success)
+        {
+            Debug.Log("注册成功");
+            registerBtn.gameObject.SetActive(false);
+            loginBtn.gameObject.SetActive(true);
+        }
+    }
+    
+    private void OnLoginCallback(UserResponse response)
+    {
+        if (response.Code == ResponseCode.Success)
+        {
+            Debug.Log("登陆成功");
+            gameObject.SetActive(false);
+        }
     }
 }
