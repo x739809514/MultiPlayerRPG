@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices.JavaScript;
 using RPGServer.Data.interfaces;
 using RPGServer.Modules;
+using RPGServer.Utilities;
 
 namespace RPGServer.Data;
 
@@ -10,20 +11,19 @@ namespace RPGServer.Data;
 public class UserRepository: IUserRepository
 {
     // temp: use dic to storage
-    private Dictionary<int, UserModule> userStorages = new Dictionary<int, UserModule>();
-    private Dictionary<string, int> userNameStorages = new Dictionary<string, int>();
+    private Dictionary<long, UserModule> userStorages = new Dictionary<long, UserModule>();
+    private Dictionary<string, long> userNameStorages = new Dictionary<string, long>();
 
-    private int userIndex = 1;
     private readonly object _lock = new object();
     
     public void Add(UserModule userModule)
     {
         lock (_lock)
         {
-            userModule.Id = userIndex;
-            userStorages[userIndex] = userModule;
-            userNameStorages[userModule.UserName.ToLower()] = userIndex;
-            userIndex++;
+            var uid = SnowFlake.GenerateId();
+            userModule.Id = uid;
+            userStorages[uid] = userModule;
+            userNameStorages[userModule.UserName.ToLower()] = uid;
         }
     }
 
@@ -53,7 +53,7 @@ public class UserRepository: IUserRepository
             var str = username.ToLower();
             if (userNameStorages.ContainsKey(str))
             {
-                int id = userNameStorages[str];
+                long id = userNameStorages[str];
                 return userStorages[id];
             }
 

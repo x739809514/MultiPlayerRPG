@@ -4,6 +4,7 @@ using RPGServer.Data;
 using RPGServer.Network;
 using RPGServer.Service;
 using RPGServer.Service.Interface;
+using RPGServer.Session;
 
 namespace RPGServer;
 
@@ -36,6 +37,8 @@ public class GameServer
             // creat core thread
             Thread acceptThread = new Thread(AcceptListener);
             acceptThread.Start();
+            
+            SessionTimeoutChecker.Start();
         }
         catch (Exception e)
         {
@@ -116,7 +119,8 @@ public class GameServer
             Console.WriteLine($"Closing {sessionList.Count} active sessions...");
             sessionList.Clear();
         }
-
+        SessionTimeoutChecker.Stop();
+        
         Console.WriteLine("Server stopped");
     }
 }

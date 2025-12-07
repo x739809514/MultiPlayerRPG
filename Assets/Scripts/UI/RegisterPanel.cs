@@ -87,9 +87,14 @@ public class RegisterPanel : MonoBehaviour
     
     private void OnLoginCallback(UserResponse response)
     {
-        if (response.Code == ResponseCode.Success)
+        if (response.Code == ResponseCode.Success && ClientSession.IsLogin)
         {
             Debug.Log("登陆成功");
+            
+            HeartBeat heartBeat = new HeartBeat();
+            heartBeat.StartHeartBeat();
+            Debug.Log("客户端心跳开始");
+            
             gameObject.SetActive(false);
         }
     }

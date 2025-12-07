@@ -50,11 +50,14 @@
     <Compile Include="Assets/Scripts/Network/BinarySerialization.cs" />
     <Compile Include="Assets/Scripts/Network/PacketType.cs" />
     <Compile Include="Assets/Scripts/Network/Protocol/Packet.cs" />
+    <Compile Include="Assets/Scripts/HeartBeat/HeartBeat.cs" />
     <Compile Include="Assets/Scripts/Network/Protocol/Response/UserResponse.cs" />
     <Compile Include="Assets/Scripts/Network/NetworkManager.cs" />
     <Compile Include="Assets/Scripts/Network/Protocol/Request/LoginRequest.cs" />
     <Compile Include="Assets/Scripts/UI/RegisterPanel.cs" />
+    <Compile Include="Assets/Scripts/Network/Protocol/Request/HeartBeatRequest.cs" />
     <Compile Include="Assets/TutorialInfo/Scripts/Readme.cs" />
+    <Compile Include="Assets/Scripts/Network/ClientSession.cs" />
     <Compile Include="Assets/Scripts/Network/Protocol/Request/RegisterRequest.cs" />
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

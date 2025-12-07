@@ -5,6 +5,7 @@ using RPGServer.Modules;
 using RPGServer.Protocol;
 using RPGServer.Protocol.Packs.Response;
 using RPGServer.Service.Interface;
+using RPGServer.Session;
 
 namespace RPGServer.Service;
 
@@ -133,6 +134,25 @@ public class UserServices: IUserService
                 Message = "登录失败"
             };
         }
+    }
+    
+    /// <summary>
+    /// 心跳
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="sessionId"></param>
+    /// <returns></returns>
+    public bool Validation(long uid, string sessionId)
+    {
+        return SessionManager.Validation(uid, sessionId);
+    }
+
+    /// <summary>
+    /// 关闭Session
+    /// </summary>
+    public void CloseSession(long uid)
+    {
+        SessionManager.Remove(uid);
     }
 
     public UserModule GetUserByUsername(string username)

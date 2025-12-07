@@ -1,8 +1,10 @@
 using System.Net.Sockets;
 using System.Text;
 using RPGServer.Protocol;
+using RPGServer.Protocol.Packs;
 using RPGServer.Protocol.Packs.Response;
 using RPGServer.Service.Interface;
+using RPGServer.Session;
 
 namespace RPGServer.Network;
 
@@ -15,7 +17,7 @@ public class ClientSession
     private bool isRunning;
 
     public string sessionId { get; }
-    public int? UserId { get; private set; }
+    public long UserId { get; private set; }
 
     public ClientSession(TcpClient client, IUserService service, int bufferSize)
     {
@@ -120,6 +122,9 @@ public class ClientSession
                 case PacketType.Login:
                     HandleLogin(data);
                     break;
+                case PacketType.HeartBeat:
+                    HandleHeartBeat(data);
+                    break;
                 default:
                     Console.WriteLine($"Session {sessionId} unknown packet type: {type}");
                     break;
@@ -171,6 +176,9 @@ public class ClientSession
             if (response.Code == Protocol.ResponseCode.Success)
             {
                 UserId = response.UserId;
+                var sessionId = Guid.NewGuid().ToString("N");
+                SessionManager.CreateSession(UserId,sessionId,tcpClient);
+                response.SessionId = sessionId;
                 Console.WriteLine($"Session {sessionId} user {UserId} logged in");
             }
 
@@ -183,6 +191,21 @@ public class ClientSession
         {
             Console.WriteLine($"Session {sessionId} login error: {e.Message}");
             SendErrorResponse(PacketType.Login, "登录处理失败");
+        }
+    }
+
+    private void HandleHeartBeat(byte[] data)
+    {
+        var request = Packet.FromBytes<HeartBeatRequest>(data);
+        var isOk = userService.Validation(request.Uid, request.SessionId);
+        if (isOk)
+        {
+            Console.WriteLine($"Session {sessionId} 's heart is beating ...");
+        }
+        else
+        {
+            Console.WriteLine($"Session {sessionId} 's SessionId or Uid is not valid");
+            userService.CloseSession(request.Uid);
         }
     }
 

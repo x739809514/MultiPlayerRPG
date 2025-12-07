@@ -4,7 +4,6 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using Network.Protocol.Response;
-using UnityEditor;
 using UnityEngine;
 
 namespace Network
@@ -180,6 +179,7 @@ namespace Network
                         break;
                     case PacketType.Login:
                         var loginResponse = PhraseUserResponse(fullPacket);
+                        ClientSession.Set(loginResponse.UserId,loginResponse.SessionId);
                         onLoginResponse?.Invoke(loginResponse);
                         Debug.Log($"Login Response: {loginResponse.Code}-{loginResponse.Message}");
                         break;
@@ -201,12 +201,14 @@ namespace Network
                     reader.ReadByte(); // skip type
                     ResponseCode code = (ResponseCode)reader.ReadByte();
                     string message = BinarySerialization.ReadString(reader);
-                    int userId = reader.ReadInt32();
+                    long userId = reader.ReadInt64();
+                    string sessionId = BinarySerialization.ReadString(reader);
                     return new UserResponse()
                     {
                         Code = code,
                         Message = message,
-                        UserId = userId
+                        UserId = userId,
+                        SessionId = sessionId
                     };
                 }
             }
