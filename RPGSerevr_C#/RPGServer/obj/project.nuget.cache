@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dFEEJB/ImT8MDNqQcFSKRHVD4hyKZvc+TU5vT5a1pot3lwJlrPN7HOePze88NE7UWG8Rgq80wFAekDS353Yi4w==",
+  "dgSpecHash": "sSt29BA2wrc=",
   "success": true,
-  "projectFilePath": "/Users/innovation/MultiPlayerRPG/RPGSerevr_C#/RPGServer/RPGServer.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\A_WorkSpace\\Multiplayer_RPG\\RPGSerevr_C#\\RPGServer\\RPGServer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
